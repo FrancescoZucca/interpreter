@@ -5,7 +5,7 @@ VisualStudioVersion = 16.0.30001.183
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguInterpreterInterface", "LinguInterpreterInterface\LinguInterpreterInterface.csproj", "{650E8EF7-B4A8-4A0A-8CAA-5BA4E489440A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguLexer", "LinguLexer\LinguLexer.csproj", "{B2644BDC-72FB-4412-AEAC-2C699A6ED00A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinguLib", "LinguLexer\LinguLib.csproj", "{B2644BDC-72FB-4412-AEAC-2C699A6ED00A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

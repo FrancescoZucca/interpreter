@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using LinguLib;
 
 namespace LinguInterpreterInterface
 {
@@ -17,5 +18,21 @@ namespace LinguInterpreterInterface
             InitializeComponent();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog fl = new OpenFileDialog();
+            fl.ShowDialog();
+            textBox1.Text = fl.FileName;
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            return;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
