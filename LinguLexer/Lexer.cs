@@ -9,15 +9,18 @@ namespace LinguLib
             int verificitate = 0;
             string subStringArg = null;
             int currentArrayEntry = 0;
+            string[] quotes = null;
             if (line.Contains('\"'))
             {
-                string[] quotes = line.Split('\"');
+                quotes = line.Split('\"');
                 subStringArg = quotes[1];
             }
             if (subStringArg != null)
             {
-                line.Replace(subStringArg, "STRING");
+                line = line.Replace(quotes[1], "STRING");
                 verificitate = 1;
+                line = line.Replace("\\", "");
+                line = line.Replace("\"", "");
             }
             string[] tokens = line.Split(' ');
             foreach (string i in tokens)
@@ -25,7 +28,7 @@ namespace LinguLib
                 if (i == "STRING" && subStringArg != null && verificitate == 1)
                 {
                     string value = i;
-                    value.Replace("STRING", subStringArg);
+                    value = value.Replace("STRING", subStringArg);
                     tokens[currentArrayEntry] = value;
                 }
                 currentArrayEntry++;

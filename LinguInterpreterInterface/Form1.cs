@@ -21,6 +21,7 @@ namespace LinguInterpreterInterface
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog fl = new OpenFileDialog();
+            fl.Filter = "Lingu source files (*.lgu)|*.lgu";
             fl.ShowDialog();
             textBox1.Text = fl.FileName;
         }
@@ -32,7 +33,7 @@ namespace LinguInterpreterInterface
 
         private void button2_Click(object sender, EventArgs e)
         {
-            
+            OneLiner.LexterpretFile(textBox1.Text);
         }
     }
 }
