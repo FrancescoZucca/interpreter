@@ -10,6 +10,7 @@ namespace LinguLib
     {
         public static void Interpret(string[] input)
         {
+            
             switch (input[0])
             {
                 case "Output":
@@ -19,7 +20,67 @@ namespace LinguLib
                     }
                     break;
 
+                case "Get":
+                    switch (input[1])
+                    {
+                        case "input":
+                            if (input[2] == "and" && input[3] == "store" && input[4] == "in")
+                            {
+                                
+                            }
+                            break;
+                        case "input.":
+                            Console.ReadLine();
+                            break;
+                        default:
+                            Console.WriteLine("invalid syntax for Get.");
+                            break;
+                    }
+                    break;
+
+                case "New":
+                    if (input[2] == "of" && input[3] == "name")
+                    {
+                        switch (input[1])
+                        {
+                            case "string":
+                                if (input[5] == "with" && input[6] == "value" && input[7].Contains('.'))
+                                {
+                                    Variables.NewString(input[4], input[7]);
+                                }
+                                else if (input[4].Contains('.'))
+                                {
+                                    Variables.NewString(input[4]);
+                                }
+                                break;
+
+                            case "boolean":
+                                if (input[5] == "with" && input[6] == "value" && input[7].Contains('.'))
+                                {
+                                    Variables.NewBoolean(input[4], input[7]);
+                                }
+                                else if (input[4].Contains('.'))
+                                {
+                                    Variables.NewBoolean(input[4]);
+                                }
+                                break;
+
+                            case "number":
+                                if (input[5] == "with" && input[6] == "value" && input[7].Contains('.'))
+                                {
+                                    Variables.NewNumber(input[4], input[7]);
+                                }
+                                else if (input[4].Contains('.'))
+                                {
+                                    Variables.NewNumber(input[4]);
+                                }
+                                break;
+                        }
+                    }
+                    break;
+
                 default:
+                    Console.WriteLine("Invalid syntax.");
                     break;
             }
         }

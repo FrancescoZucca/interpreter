@@ -10,29 +10,30 @@ namespace LinguLib
             string subStringArg = null;
             int currentArrayEntry = 0;
             string[] quotes = null;
-            if (line.Contains('\"'))
-            {
-                quotes = line.Split('\"');
-                subStringArg = quotes[1];
-            }
-            if (subStringArg != null)
-            {
-                line = line.Replace(quotes[1], "STRING");
-                verificitate = 1;
-                line = line.Replace("\\", "");
-                line = line.Replace("\"", "");
-            }
-            string[] tokens = line.Split(' ');
-            foreach (string i in tokens)
-            {
-                if (i == "STRING" && subStringArg != null && verificitate == 1)
+            string[] tokens = null;
+                if (line.Contains('\"'))
                 {
-                    string value = i;
-                    value = value.Replace("STRING", subStringArg);
-                    tokens[currentArrayEntry] = value;
+                    quotes = line.Split('\"');
+                    subStringArg = quotes[1];
                 }
-                currentArrayEntry++;
-            }
+                if (subStringArg != null)
+                {
+                    line = line.Replace(quotes[1], "STRING");
+                    verificitate = 1;
+                    line = line.Replace("\\", "");
+                    line = line.Replace("\"", "");
+                }
+                tokens = line.Split(' ');
+                foreach (string i in tokens)
+                {
+                    if (i == "STRING" && subStringArg != null && verificitate == 1)
+                    {
+                        string value = i;
+                        value = value.Replace("STRING", subStringArg);
+                        tokens[currentArrayEntry] = value;
+                    }
+                    currentArrayEntry++;
+                }
             return tokens;
         }
     }

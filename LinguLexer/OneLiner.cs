@@ -17,14 +17,13 @@ namespace LinguLib
 
         public static void LexterpretFile(string filePath)
         {
-            string line;
             int counter = 0;
+            string line;
             StreamReader o = new StreamReader(filePath);
-            do
+            while ((line = o.ReadLine()) != null)
             {
-                Lexterpret(o.ReadLine());
-                counter++;
-            } while ((line = o.ReadLine()) != null);
+                Lexterpret(line);
+            }
         }
     } 
 }

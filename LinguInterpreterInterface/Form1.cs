@@ -34,6 +34,8 @@ namespace LinguInterpreterInterface
         private void button2_Click(object sender, EventArgs e)
         {
             OneLiner.LexterpretFile(textBox1.Text);
+            Console.WriteLine("");
+            Console.WriteLine("End of file");
         }
     }
 }
