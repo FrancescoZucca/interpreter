@@ -10,10 +10,10 @@ namespace LinguLib
 {
     public class Variables
     {
-        public static int[] amountOfVars = { 0, 0, 0}; // num, string, bool
-        public static Number[] numberRegistry;
-        public static String[] stringRegistry;
-        public static Boolean[] boolRegistry;
+        public static int[] amountOfVars = new int[3] { 0, 0, 0}; // num, string, bool
+        public static Number[] numberRegistry = new Number[70];
+        public static String[] stringRegistry = new String[25];
+        public static Boolean[] boolRegistry = new Boolean[95];
 
         public class Number
         {
@@ -90,6 +90,9 @@ namespace LinguLib
             amountOfVars[1]++;
         }
 
+        public static void NewVariableValue(int type, string name, string value)
+        {
 
+        }
     }
 }
