@@ -1,2 +1,2 @@
-### Lingu:
+# Lingu:
 ## The lingustic language.
