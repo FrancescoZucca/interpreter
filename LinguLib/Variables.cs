@@ -109,8 +109,9 @@ namespace LinguLib
                 {
                     stringRegistry[c].Value = value; // if the current variables's name matches what we need, assign new value
                 }
+                c++; // also, humor!
             }
-            c++; // also, humor!
+            
 
             // This process is repeated for every variable type in Lingu, with type-specific alterations
 
@@ -121,8 +122,8 @@ namespace LinguLib
                 {
                     numberRegistry[c].Value = Convert.ToDouble(value);
                 }
+                c++;
             }
-            c++; 
 
             c = 0;
             foreach (Boolean i in boolRegistry)
@@ -145,8 +146,8 @@ namespace LinguLib
                     }
                     boolRegistry[c].Value = boolValue;
                 }
+                c++;
             }
-            c++;
         }
     }
 }
