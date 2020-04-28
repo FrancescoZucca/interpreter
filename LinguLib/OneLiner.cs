@@ -10,6 +10,10 @@ namespace LinguLib
 {
     public class OneLiner
     {
+        // Nothing much here. Just some functions to  |
+        // have the least amount of code in the front |
+        // end interaction logic. Oneline methods.   \_/
+        
         public static void Lexterpret(string input)
         {
             Interpreter.Interpret(Lexer.LexLine(input));

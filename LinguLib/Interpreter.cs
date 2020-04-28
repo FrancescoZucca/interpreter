@@ -11,7 +11,7 @@ namespace LinguLib
     {
         public static void Interpret(string[] input)
         {
-            
+            // The interpreter for Lingu. Essentially, a plethora of switch statements. Pretty self-documenting.
             switch (input[0])
             {
                 case "Comment":
@@ -22,13 +22,13 @@ namespace LinguLib
                     {
                         Console.WriteLine(input[1]);
                     }
-                    if (input[1] == "the" && input[2] == "value" && input[3] == "of" && input[4] == "variable" && input[6] == "to" && input[7] == "Console")
+                    else if (input[1] == "the" && input[2] == "value" && input[3] == "of" && input[4] == "variable" && input[6] == "to" && input[7] == "Console.")
                     {
-                        IO.OutputVariable(input[5]);
+                        Console.WriteLine(IO.OutputVariable(input[5]));
                     }
                     else
                     {
-                        throw new SyntaxErrorException("Invalid syntax for");
+                        throw new SyntaxErrorException("Invalid syntax for Output");
                     }
                     break;
 
@@ -38,7 +38,7 @@ namespace LinguLib
                         case "input":
                             if (input[2] == "and" && input[3] == "store" && input[4] == "in")
                             {
-                                
+                                IO.InputVariable(input[5]);
                             }
                             break;
                         case "input.":
@@ -55,7 +55,7 @@ namespace LinguLib
                         switch (input[1])
                         {
                             case "string":
-                                if (input[5] == "with" && input[6] == "value" && input[7].Contains('.'))
+                                if (input[5] == "with" && input[6] == "value")
                                 {
                                     Variables.NewString(input[4], input[7]);
                                 }
@@ -66,7 +66,7 @@ namespace LinguLib
                                 break;
 
                             case "boolean":
-                                if (input[5] == "with" && input[6] == "value" && input[7].Contains('.'))
+                                if (input[5] == "with" && input[6] == "value")
                                 {
                                     Variables.NewBoolean(input[4], input[7]);
                                 }
@@ -77,11 +77,11 @@ namespace LinguLib
                                 break;
 
                             case "number":
-                                if (input[5] == "with" && input[6] == "value" && input[7].Contains('.'))
+                                if (input[5] == "with" && input[6] == "value")
                                 {
                                     Variables.NewNumber(input[4], input[7]);
                                 }
-                                else if (input[4].Contains('.'))
+                                else if (input[5] == null)
                                 {
                                     Variables.NewNumber(input[4]);
                                 }
