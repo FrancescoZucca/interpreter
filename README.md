@@ -38,8 +38,8 @@ austin
 ### Dependencies
 
 #### Development
-[.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
-[Visual Studio 2019 v16.6+](https://visualstudio.microsoft.com/vs/preview/)
+[.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0) <br>
+[Visual Studio 2019 v16.6+](https://visualstudio.microsoft.com/vs/preview/) <br>
 (as of May 1st, if you don't have the Preview, you don't have 16.6)
 
 #### Runtime
