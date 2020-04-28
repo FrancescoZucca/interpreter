@@ -14,8 +14,8 @@ namespace LinguLib
             string[] tokens;
             string[] subStrings = new string[10];
             string[] varCache = new string[10];
-            int c = 0; // <-- because I can, 'i' was taken in the context this is used, and doing 'c++' is humorous
-            int i = 0;
+            int i = 0; // <-- because I can, 'i' was taken in the context this is used, and doing 'c++' is humorous
+            int c = 0;
 
             while (line.Contains('\"'))
             {
@@ -66,7 +66,7 @@ namespace LinguLib
                     temp[1] = temp[1].Replace(".", "").Replace("\"", "");
                     int id = Convert.ToInt32(temp[1]);
                     linee = linee.Replace(curr, subStrings[id]);
-                    linee.Replace("\"", "");
+                    linee = linee.Replace("\"", "");
                     tokens[c] = linee;
                 }
                 c++;

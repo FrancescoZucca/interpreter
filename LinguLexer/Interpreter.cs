@@ -26,6 +26,10 @@ namespace LinguLib
                     {
                         IO.OutputVariable(input[5]);
                     }
+                    else
+                    {
+                        throw new SyntaxErrorException("Invalid syntax for");
+                    }
                     break;
 
                 case "Get":
@@ -41,8 +45,7 @@ namespace LinguLib
                             Console.ReadLine();
                             break;
                         default:
-                            Console.WriteLine("invalid syntax for Get.");
-                            break;
+                            throw new SyntaxErrorException("invalid syntax for Get.");
                     }
                     break;
 
@@ -83,6 +86,9 @@ namespace LinguLib
                                     Variables.NewNumber(input[4]);
                                 }
                                 break;
+
+                            default:
+                                throw new SyntaxErrorException("Invalid syntax for New");
                         }
                     }
                     break;
