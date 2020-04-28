@@ -43,7 +43,7 @@ austin
 (as of May 1st, if you don't have the Preview, you don't have 16.6)
 
 #### Runtime
-(for Windows) [.NET 5 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/5.0)
+(for Windows) [.NET 5 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/5.0) <br>
 (for MacOS/Linux) Coming soon...
 
 ### Shenanigans
