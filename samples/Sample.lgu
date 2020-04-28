@@ -1,0 +1,9 @@
+# A sample Lingu Program
+# This program takes text you give it, and repeats it
+# Very simple, but the peak of Lingu rn
+Output "Mirror text:" to Console.
+New string of name "mirror".
+Get input and store in "mirror".
+Output the value of variable "mirror" to Console.
+
+# End of file
