@@ -33,10 +33,7 @@ namespace LinguInterpreterInterface
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // OneLiner.LexterpretFile(textBox1.Text);
-            OneLiner.Lexterpret("Output \"sample text\" to Console.");
-            Console.WriteLine("");
-            Console.WriteLine("End of file");
+            OneLiner.LexterpretFile(textBox1.Text);
         }
     }
 }

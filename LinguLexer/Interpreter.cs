@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,17 @@ namespace LinguLib
             
             switch (input[0])
             {
+                case "Comment":
+                    break;
+
                 case "Output":
                     if (input[2] == "to" && input[3] == "Console.")
                     {
                         Console.WriteLine(input[1]);
+                    }
+                    if (input[1] == "the" && input[2] == "value" && input[3] == "of" && input[4] == "variable" && input[6] == "to" && input[7] == "Console")
+                    {
+                        IO.OutputVariable(input[5]);
                     }
                     break;
 
@@ -80,8 +88,7 @@ namespace LinguLib
                     break;
 
                 default:
-                    Console.WriteLine("Invalid syntax.");
-                    break;
+                    throw new SyntaxErrorException("Invalid syntax.");
             }
         }
     }

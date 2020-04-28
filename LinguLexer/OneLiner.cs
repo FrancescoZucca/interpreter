@@ -17,7 +17,6 @@ namespace LinguLib
 
         public static void LexterpretFile(string filePath)
         {
-            int counter = 0;
             string line;
             StreamReader o = new StreamReader(filePath);
             while ((line = o.ReadLine()) != null)

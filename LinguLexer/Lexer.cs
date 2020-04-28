@@ -1,49 +1,81 @@
 ﻿using System;
+using System.Text.Json;
 
 namespace LinguLib
 {
-    public class Lexer
+    public class Lexer // version v0.3a
     {
         public static string[] LexLine(string line)
         {
-            string[] subStringArg = new string[10];
-            int currentArrayEntry = 0;
-            string[] quotes = null;
-            string[] tokens = null;
-            int ini = 0; // NOTE to future self, was just a random name
+            if (line.StartsWith("#"))
+            {
+                goto Comment;
+            }
+            string[] tokens;
+            string[] subStrings = new string[10];
+            string[] varCache = new string[10];
+            int c = 0; // <-- because I can, 'i' was taken in the context this is used, and doing 'c++' is humorous
+            int i = 0;
+
             while (line.Contains('\"'))
             {
-                if (line.Contains('\"'))
+                int startPos = 0;
+                int endPos = 0;
+                try
                 {
-                    quotes = line.Split('\"');
-                    subStringArg[ini] = quotes[1];
+                    char[] fragments = line.ToCharArray();
+                    // getting char positions
+                    foreach (Char curr in fragments)
+                    {
+                        if (curr == '\"')
+                        {
+                            break;
+                        }
+                        startPos++;
+                    }
+                    foreach (Char curr in fragments)
+                    {
+                        if (curr == '\"' && endPos != startPos)
+                        {
+                            break;
+                        }
+                        endPos++;
+                    }
+                    subStrings[i] = line.Substring(startPos, (endPos - startPos));
+                    line = line.Replace(subStrings[i], "STRING-" + i); // signals that a string is supposed to be there, and gives an identifier
+                    line = line.Replace(("-" + i + "\""), ("-" + i));
                 }
+                catch
+                {
+                    break;
+                }
+                i++;
+            }
 
-                if (subStringArg != null)
-                {
-                    line = line.Replace(quotes[1], "STRING");
-                    line = line.Replace("\\", "");
-                    line = line.Replace("\"", "");
-                }
-                ini++;
-            }
-            tokens = line.Split(' ');
-            if (tokens[0] == "Output" && tokens[1] != "STRING")
+            // Main point. String resolution comes before //
+            /********/ tokens = line.Split(' '); /********/
+            // String replacement comes after /**********/
+
+            foreach (String curr in tokens)
             {
-                tokens[1] = IO.OutputVariable(tokens[1]);
-            }
-            ini = 0;
-            foreach (string i in tokens)
-            {
-                if (i == "STRING" && subStringArg != null)
+                if (curr.Contains("STRING-"))
                 {
-                    string value = i;
-                    value = value.Replace("STRING", subStringArg[ini]);
-                    tokens[currentArrayEntry] = value;
+                    string linee = curr; // linee because line was taken
+                    string[] temp //<-- "temporary"
+                    = curr.Split('-');
+                    temp[1] = temp[1].Replace(".", "").Replace("\"", "");
+                    int id = Convert.ToInt32(temp[1]);
+                    linee = linee.Replace(curr, subStrings[id]);
+                    linee.Replace("\"", "");
+                    tokens[c] = linee;
                 }
-                currentArrayEntry++;
-                ini++;
+                c++;
             }
+
+            return tokens;
+        Comment:;
+            tokens = new string[1];
+            tokens[0] = "Comment";
             return tokens;
         }
     }
