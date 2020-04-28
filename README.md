@@ -34,3 +34,17 @@ enter your name:
 (austin)
 austin
 ```
+
+### Dependencies
+
+#### Development
+[.NET 5 SDK](https://dotnet.microsoft.com/download/dotnet/5.0)
+[Visual Studio 2019 v16.6+](https://visualstudio.microsoft.com/vs/preview/)
+(as of May 1st, if you don't have the Preview, you don't have 16.6)
+
+#### Runtime
+(for Windows) [.NET 5 Desktop Runtime](https://dotnet.microsoft.com/download/dotnet/5.0)
+(for MacOS/Linux) Coming soon...
+
+### Shenanigans
+The `LinguLib.dll` file must be in the same directory as the executable.
