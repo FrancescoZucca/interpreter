@@ -20,8 +20,7 @@ namespace LinguInterpreterInterface
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog fl = new OpenFileDialog();
-            fl.Filter = "Lingu source files (*.lgu)|*.lgu";
+            OpenFileDialog fl = new OpenFileDialog { Filter = "Lingu source files (*.lgu)|*lgu" };
             fl.ShowDialog();
             textBox1.Text = fl.FileName;
         }

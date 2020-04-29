@@ -55,13 +55,13 @@ namespace LinguLib
                         switch (input[1])
                         {
                             case "string":
-                                if (input[5] == "with" && input[6] == "value")
-                                {
-                                    Variables.NewString(input[4], input[7]);
-                                }
-                                else if (input[4].Contains('.'))
+                                if (input.Length==5)
                                 {
                                     Variables.NewString(input[4]);
+                                }
+                                else if (input[5] == "with" && input[6] == "value")
+                                {
+                                    Variables.NewString(input[4], input[7]);
                                 }
                                 break;
 
@@ -91,6 +91,9 @@ namespace LinguLib
                                 throw new SyntaxErrorException("Invalid syntax for New");
                         }
                     }
+                    break;
+
+                case "":
                     break;
 
                 default:
