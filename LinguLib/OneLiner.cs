@@ -22,10 +22,14 @@ namespace LinguLib
         public static void LexterpretFile(string filePath)
         {
             string line;
-            StreamReader o = new StreamReader(filePath);
-            while ((line = o.ReadLine()) != null)
+            try {
+                StreamReader o = new StreamReader(filePath);
+                while ((line = o.ReadLine()) != null){
+                    Lexterpret(line);
+                }
+            }catch (FileNotFoundException)
             {
-                Lexterpret(line);
+                //TODO: add FNF handling
             }
         }
     } 
